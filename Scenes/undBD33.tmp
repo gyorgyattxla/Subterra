@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://defqtn25u5a0o"]
+
+[ext_resource type="Texture2D" uid="uid://bcqx7cl03p1sg" path="res://Assets/undergroundTileSet.png" id="1_7yccw"]
+[ext_resource type="Script" path="res://Scripts/subWorldGeneration.gd" id="1_s3wrf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6n8u"]
+texture = ExtResource("1_7yccw")
+0:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hyy1d"]
+sources/0 = SubResource("TileSetAtlasSource_e6n8u")
+
+[node name="UnderWorld" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_hyy1d")
+script = ExtResource("1_s3wrf")

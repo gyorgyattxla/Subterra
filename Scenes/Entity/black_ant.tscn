@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://dpt2ele32pk33"]
+
+[ext_resource type="Texture2D" uid="uid://c1vsic1mdwloj" path="res://Assets/blackAnt_spawn.png" id="1_dp4rm"]
+[ext_resource type="Script" path="res://Scripts/blackAnt.gd" id="1_h2m75"]
+[ext_resource type="Texture2D" uid="uid://deetweqgxiswe" path="res://Assets/blackAnt_walk/blackAnt_walk1.png" id="2_xl4iv"]
+[ext_resource type="Texture2D" uid="uid://blfevhgjb2a85" path="res://Assets/blackAnt_walk/blackAnt_walk2.png" id="3_phajm"]
+[ext_resource type="Texture2D" uid="uid://mnewa2wg2skk" path="res://Assets/blackAnt_walk/blackAnt_walk3.png" id="4_q7nkx"]
+[ext_resource type="Texture2D" uid="uid://cywnys8a1n1p3" path="res://Assets/blackAnt_walk/blackAnt_walk4.png" id="5_j1wqp"]
+[ext_resource type="Texture2D" uid="uid://cnvpljv6uvaw3" path="res://Assets/blackAnt_walk/blackAnt_walk5.png" id="6_ijag0"]
+[ext_resource type="Texture2D" uid="uid://dflsib2qfmbfi" path="res://Assets/blackAnt_walk/blackAnt_walk6.png" id="7_skxfw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7qi7"]
+height = 42.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jelx3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dp4rm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xl4iv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_phajm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q7nkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j1wqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ijag0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_skxfw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wf3c"]
+radius = 8.0
+height = 42.0
+
+[node name="blackAnt" type="CharacterBody2D"]
+scale = Vector2(0.35, 0.35)
+script = ExtResource("1_h2m75")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_m7qi7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_jelx3")
+animation = &"walk"
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+position = Vector2(0, -9)
+shape = SubResource("CapsuleShape2D_5wf3c")
+debug_color = Color(2.64719e-06, 0.637045, 0.397171, 0.42)
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="FoodTimer" type="Timer" parent="."]
+wait_time = 140.0
+one_shot = true
+autostart = true
+
+[node name="WaterTimer" type="Timer" parent="."]
+wait_time = 75.0
+one_shot = true
+autostart = true

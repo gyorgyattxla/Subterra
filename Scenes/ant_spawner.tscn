@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqfbm1puw1rf0"]
+
+[ext_resource type="Script" path="res://Scripts/ant_spawner.gd" id="1_kpm63"]
+
+[node name="antSpawner" type="Node2D"]
+script = ExtResource("1_kpm63")

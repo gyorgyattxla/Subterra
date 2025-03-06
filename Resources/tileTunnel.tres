@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="tile" load_steps=3 format=3 uid="uid://bqcj3v7eat2l7"]
+
+[ext_resource type="Script" path="res://Scripts/tile.gd" id="1_2a78l"]
+[ext_resource type="Texture2D" uid="uid://nxw54r04hd0e" path="res://Assets/tileTunnel.png" id="2_br00o"]
+
+[resource]
+script = ExtResource("1_2a78l")
+name = "tunnel"
+texture = ExtResource("2_br00o")
+walkable = true
+diggable = false
+hitpoints = 1

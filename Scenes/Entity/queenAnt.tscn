@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7hh85yvpqd40"]
+
+[ext_resource type="Texture2D" uid="uid://chl47qdwdu0xj" path="res://Assets/blackQueenAnt.png" id="1_kliln"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0nn3p"]
+radius = 16.0
+height = 88.0
+
+[node name="queenAnt" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_kliln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0nn3p")
+
+[node name="feedingMarker" type="Marker2D" parent="."]
+position = Vector2(0, -59)

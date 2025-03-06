@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="antResource" load_steps=2 format=3 uid="uid://cad2ng5st1yid"]
+
+[ext_resource type="Script" path="res://Scripts/antResource.gd" id="1_l511m"]
+
+[resource]
+script = ExtResource("1_l511m")
+hitPoints = 200
+damage = 75
+foodNeed = 35.0
+waterNeed = 25.0
+poisoned = false
